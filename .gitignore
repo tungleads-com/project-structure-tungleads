@@ -1,0 +1,13 @@
+# Env & secrets
+.env
+.env.*.local
+
+# OS
+.DS_Store
+
+# Dependencies (stack cụ thể tự thêm: node_modules/, vendor/, .venv/...)
+
+# Build output (stack cụ thể tự thêm: dist/, build/, public/build/...)
+
+# Scratch/tạm
+.scratch/
