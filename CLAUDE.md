@@ -10,7 +10,7 @@
 >    ⚠️ File có thể lớn dần: **chỉ đọc bằng `grep -n "^### Px.y"` + `sed -n "X,Yp"`**, KHÔNG mở cả file.
 
 - **Ranh giới:** <VD "frontend chỉ trình bày, business logic ở đâu" — điền theo kiến trúc thật của dự án>.
-- **Số P-index** đánh theo `P<nhóm>.<số>`. 3 lớp đồng bộ: chỉ mục dưới đây → tag `// Px.y` trong code → `.ai/FEATURE_MAP.md`.
+- **Số P-index** đánh theo `P<nhóm>.<số>`. 3 lớp đồng bộ: chỉ mục dưới đây → tag `// [Px.y][FE]` (hoặc `[BE]`/`[DB]`) trong code → `.ai/FEATURE_MAP.md`.
 
 ## Nhóm (đề xuất mẫu — sửa lại theo domain dự án thật rồi xoá dòng này)
 

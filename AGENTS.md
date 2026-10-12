@@ -47,7 +47,7 @@ Nhãn commit chỉ được là tên model đã khai ở đây.>
 ## Sau khi xong (trước khi dừng phiên)
 
 1. Kiểm chứng phần vừa sửa (theo làn ở trên).
-2. Đồng bộ: chỉ mục `CLAUDE.md` (chỉ khi có số P MỚI) → tag `// Px.y` trong code → chi tiết trong `.ai/FEATURE_MAP.md`.
+2. Đồng bộ: chỉ mục `CLAUDE.md` (chỉ khi có số P MỚI) → tag `// [Px.y][FE]` (hoặc `[BE]`/`[DB]`) trong code → chi tiết trong `.ai/FEATURE_MAP.md`.
 3. *(Nếu có WORKLOG)* Ghi 1 dòng §2 + cập nhật §1 nếu còn việc dang dở.
 4. Commit kèm P-index: `feat(P3.5): ...` (nhiều model: `feat(P3.5)[claude]: ...`).
 

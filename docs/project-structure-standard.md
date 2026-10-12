@@ -3,9 +3,10 @@
 > Đúc kết từ 2 dự án thật: `TLA Theme` (tungleads-theme-cp — 2 model claude/deepseek chạy tuần tự,
 > đã tối ưu CLAUDE.md 131KB → 6.9KB) và `web-video-learning` (Laravel Boost — bằng chứng sống cho
 > việc KHÔNG rotate WORKLOG sẽ phình tới 214KB/1.586 dòng không kiểm soát được).
-> Bản 2026-09-18b — sau phản biện 2 chiều, sửa 6 điểm: lý do khối tool tự sinh (đích ghi là **CONFIG**,
-> không phải “cố định”), tag tầng `[FE]/[BE]/[DB]`, làm rõ “CẤM narrative” ở FEATURE_MAP, **ngân sách
-> token/phiên**, quy tắc **nhiều repo**, cấm **nhân bản skill/lệnh**.
+> **Version: v1.1** (chốt 2026-10-12) · **Lịch sử sửa: `CHANGELOG.md`** (cùng thư mục) — mỗi lần sửa file này:
+> bump version (**PATCH** = sửa câu chữ · **MINOR** = thêm/sửa quy tắc, đổi hạn mức · **MAJOR** = đổi nguyên tắc nền)
+> rồi ghi **1 dòng** vào CHANGELOG. Dự án áp chuẩn thì ghi `**Chuẩn áp dụng:** … — vX.Y` trong `AGENTS.md`,
+> và mọi chỗ **lệch chuẩn** phải khai báo kèm **số đo + lý do + trigger xem lại**.
 > File này được `~/.claude/CLAUDE.md` trỏ tới — không lặp lại nội dung ở đó.
 > ⚠️ Chỗ trỏ đó phải là **TRỎ** (nhắc đường dẫn), **KHÔNG `@import`** — kẻo nạp thêm ~2,9KB mỗi phiên cho MỌI dự án.
 
@@ -15,8 +16,9 @@
 <project-root>/
 ├── CLAUDE.md        ≤8KB PHẦN VIẾT TAY  — CHỈ MỤC (auto-nạp mọi phiên) — 1 dòng/số P-index → FEATURE_MAP.
 │                          Dự án dùng tool tự sinh guideline (Laravel Boost…): GIỮ NGUYÊN khối tool ghi,
-│                          KHÔNG di dời (xem "Vì sao không di dời" bên dưới). Hạn mức 8KB chỉ tính phần
-│                          viết tay bên dưới khối tool — không tính khối tool tự sinh.
+│                          KHÔNG di dời (xem mục "Khối tool tự sinh guideline" bên dưới). Hạn mức 8KB chỉ tính
+│                          PHẦN VIẾT TAY; khối tool ĐO RIÊNG và GHI số token vào AGENTS.md (> ~3.000 token ⇒
+│                          phải xử lý bằng config/tắt/ghi ngoại lệ — xem mục dưới).
 ├── AGENTS.md        ≤10KB LUẬT DUY NHẤT: checklist đầu/cuối phiên · làn thay đổi A/B/C ·
 │                          luật SỰ THẬT ↔ LỊCH SỬ · luật đính chính (❌ ĐÍNH CHÍNH <ngày>: …,
 │                          chỉ THÊM nhãn, không xoá) · bảng hạn mức kích thước · môi trường & lệnh chạy ·
@@ -60,12 +62,12 @@
 | **1 sự thật 1 nhà** | Nội dung kỹ thuật chỉ xuất hiện ở ĐÚNG 1 file; chỗ khác chỉ TRỎ (tên file + mục), không copy. |
 | **Sự thật vs Lịch sử** | Sự thật hiện tại = `CLAUDE.md` (nghĩa) + `FEATURE_MAP.md` (chi tiết, **sửa tại chỗ**) + `WORKLOG §1` (đang làm, **ghi đè**). Lịch sử = `WORKLOG §2` + archive (**chỉ ghi thêm**, không bao giờ là nguồn tra "hiện tại đúng là gì"). |
 | **Đính chính không xoá** | Phiên sau phủ định điều phiên trước ghi → sửa `FEATURE_MAP` tại chỗ + dòng §2 mới bắt đầu bằng `❌ ĐÍNH CHÍNH <ngày>:` + dán nhãn vào dòng cũ nếu gây hiểu nhầm — chỉ THÊM nhãn, không xoá/viết lại nội dung dòng cũ (giữ audit trail). |
-| **Tag code → số + tầng** | `// [Px.y][FE]` · `[BE]` · `[DB]` (CSS/JS: `/* [Px.y][FE] */`) ở entry point: route, controller/handler, model chính, page/component gốc. Tra 1 tầng: `grep -rn "\[Px.y\]\[BE\]"`; tra cả chức năng: `grep -rn "\[Px.y\]"`. ⚠️ **Đề xuất MỚI, chưa có bằng chứng thực tế** (khác các mục còn lại trong bảng này) — áp dụng cho **dự án mới**, KHÔNG bắt buộc gắn lại tag cũ ở dự án đang chạy (VD TLA Theme đang dùng `// CPx.y` trần, không cần retrofit). |
+| **Tag code → số + tầng** | `// [Px.y][FE]` · `[BE]` · `[DB]` (CSS/JS: `/* [Px.y][FE] */`) ở entry point: route, controller/handler, model chính, page/component gốc. Tra 1 tầng: `grep -rn "\[Px.y\]\[BE\]"`; tra cả chức năng: `grep -rn "\[Px.y\]"`. **Định dạng DUY NHẤT cho dự án mới** (chủ dự án chốt 2026-10-12; `CLAUDE.md`/`AGENTS.md` mẫu đã khớp). Dự án đang chạy giữ tag riêng (VD TLA Theme `// CPx.y`, `TTHNx.y`), KHÔNG retrofit, khai báo định dạng trong `CLAUDE.md` dự án. |
 | **Tối ưu token/phiên** | Chỉ `CLAUDE.md` tự nạp mỗi phiên (≤8KB phần viết tay); mọi file còn lại đọc theo yêu cầu bằng `grep -n` + `sed -n`, không `cat` cả file. |
 | **Multi-model an toàn** | Chạy TUẦN TỰ, không song song. Nhãn commit kèm model: `feat(P3.5)[claude]: ...`. §1 đang ghi việc dang dở của model khác → không tự sửa tiếp file đó, hỏi người dùng trước. |
 | **LOCK đa model (soft lock)** | Trường `LOCK:` ở đầu §1 WORKLOG ghi rõ model nào đang giữ / trống — nhìn phát biết ngay, không phải đọc văn xuôi để suy luận. ⚠️ Đây là **khoá quy ước**, KHÔNG phải khoá hệ thống file thật — không chặn ghi song song bằng cơ chế OS, chỉ giúp agent tự giác tuân theo. |
 | **Sửa 1 số đã có** | PHẢI `grep` mục `FEATURE_MAP.md` tương ứng trước khi code — nhiều quyết định đã chốt sau khi đo (kích thước, màu, hành vi cụ thể) không được tự ý revert chỉ vì không thấy ghi ở `CLAUDE.md`. |
-| **Ngân sách token/phiên** | Cả phiên nạp ≤ **~6.000 token** = `CLAUDE.md` + `AGENTS.md` + `WORKLOG §1` + 2–3 dòng §2 cuối (đo thật trên TLA sau tối ưu: ~5.980). Kiểm 1 lệnh: `wc -c CLAUDE.md AGENTS.md .ai/WORKLOG.md .ai/FEATURE_MAP.md`. Nghi trùng lặp ⇒ quét cụm 8 từ giữa các file (≥5% là có mùi). |
+| **Ngân sách token/phiên** | **Phần do dự án VIẾT**: mục tiêu ≤ **~6.000 token** = `CLAUDE.md` (phần viết tay) + `AGENTS.md` + `WORKLOG §1` + 2–3 dòng §2 cuối (đo thật trên TLA sau tối ưu: ~5.980). **Khối tool tự sinh đo RIÊNG** và ghi số vào `AGENTS.md` (mục “Khối tool tự sinh”: > ~3.000 token ⇒ bắt buộc xử lý hoặc ghi ngoại lệ). Thực tế 6–8k vẫn chấp nhận được — **nhưng phải GHI số đo**, cấm vượt mà không ghi. Kiểm 1 lệnh: `wc -c CLAUDE.md AGENTS.md .ai/WORKLOG.md .ai/FEATURE_MAP.md`. Nghi trùng lặp ⇒ quét cụm 8 từ giữa các file (≥5% là có mùi). |
 | **Không nhân bản skill/lệnh** | 1 skill / 1 lệnh chỉ có **1 bản thật**; tool khác cần chỗ khác ⇒ **symlink** (`ln -s ../.claude/skills .agents/skills`), **cấm copy**. Bằng chứng đã dính: `web-video-learning` có `.claude/skills` 176KB **và** `.agents/skills` 176KB là 2 bản copy thật. |
 
 ## Khối tool tự sinh guideline (Laravel Boost, Cursor rules sync, Copilot instructions sync…)
@@ -76,8 +78,14 @@ rồi **ghi đè đúng khối đó** mỗi lần sync (cập nhật package, ch
 **Luật:** **KHÔNG tay sửa · KHÔNG tay di dời · KHÔNG copy** khối này sang file khác. Làm vậy thì lần sync sau tool
 sinh lại một bản mới tại chỗ cũ, còn bản đã dời thành **bản chết** ⇒ lệch dữ liệu âm thầm, vi phạm “1 sự thật 1 nhà”.
 
-**Hạn mức 8KB của `CLAUDE.md` chỉ tính PHẦN VIẾT TAY** bên dưới khối tool — **khối tool không tính** (quyết định của
-chủ dự án: không đánh nhau với tool).
+**Hạn mức 8KB của `CLAUDE.md` chỉ tính PHẦN VIẾT TAY** bên dưới khối tool — **khối tool KHÔNG tính vào hạn mức này**
+(quyết định của chủ dự án: không đánh nhau với tool). Nhưng khối tool **không được “vô hình” về token**:
+
+- **Đo riêng và ghi con số vào bảng hạn mức của `AGENTS.md`** (byte + ~token). Ví dụ thật: `khối Laravel Boost =
+  11.686 B ≈ 3.892 token` (đo 2026-09-18 trên `web-video-learning`; phần viết tay của file đó = 7.236 B ≈ 2.029 token).
+- **Ngưỡng hành động: khối tool > ~3.000 token (~9 KB)** ⇒ phải làm **1 trong 3**, không được im lặng:
+  (a) đổi config để tách/loại bớt, (b) tắt hẳn tính năng guideline, (c) ghi **ngoại lệ có lý do + số đo** ngay trong
+  `AGENTS.md` (coi như một khoản ngân sách đã được duyệt, không phải thứ bỏ quên).
 
 **Muốn giảm token do khối tool ⇒ làm bằng CONFIG, không bằng tay:**
 
