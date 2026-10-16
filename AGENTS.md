@@ -2,7 +2,7 @@
 
 **Repo:** <Tên dự án> — <mô tả ngắn>. <Ghi ranh giới kiến trúc nếu có, VD "child theme chỉ trình bày, business logic ở plugin X">.
 
-**Chuẩn áp dụng:** `project-structure-standard` — v1.2 <!-- ghi mọi chỗ lệch chuẩn kèm số đo + lý do + trigger xem lại -->
+**Chuẩn áp dụng:** [`project-structure-standard`](https://github.com/tungleads-com/project-structure-tungleads/blob/main/docs/project-structure-standard.md) (local: `~/.claude/docs/project-structure-standard.md`) — v1.2 <!-- ghi mọi chỗ lệch chuẩn kèm số đo + lý do + trigger xem lại -->
 
 **Model chạy trên repo này:** <VD "chỉ 1 model (Claude Code)" hoặc "N model tuần tự: claude, deepseek, codex — KHÔNG bao giờ song song">.
 <Nếu nhiều model: model sau chỉ bắt đầu khi model trước dừng hẳn và để lại nhật ký trong `.ai/WORKLOG.md`.

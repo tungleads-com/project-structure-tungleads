@@ -10,8 +10,8 @@ Repo mẫu chuẩn cấu trúc tài liệu cho dự án làm việc với Claude
 2. Đổi tên dự án trong `CLAUDE.md` (dòng đầu) + `README.md` này.
 3. Xoá phần không cần theo quy mô dự án (xem bảng "Khi nào cần file nào" bên dưới) — **đừng giữ file
    rỗng không dùng tới, chỉ làm rối repo**. Riêng `docs/project-structure-standard.md` + `docs/CHANGELOG.md`
-   là chuẩn gốc: **xoá khỏi dự án con**, chỉ ghi `**Chuẩn áp dụng:** … — vX.Y` trong `AGENTS.md` (đồng thời
-   sửa link ADR-0001 trỏ về repo mẫu).
+   và `docs/lessons.md` là của repo mẫu: **xoá khỏi dự án con**; `AGENTS.md`/ADR-0001 đã có link tới repo mẫu,
+   chỉ cần giữ `**Chuẩn áp dụng:** … — vX.Y`.
 4. Đề xuất bộ nhóm P-index phù hợp domain dự án (thay bảng mẫu trong `CLAUDE.md`) → người dùng duyệt
    → bắt đầu seed số đầu tiên.
 5. Điền `AGENTS.md` mục "Môi trường & lệnh chạy" theo đúng stack (Laravel/Next.js/WordPress...).
@@ -32,6 +32,7 @@ Repo mẫu chuẩn cấu trúc tài liệu cho dự án làm việc với Claude
 ├── docs/
 │   ├── measure/                Script đo tái dùng + README ý nghĩa từng script         (có UI)
 │   ├── project-structure-standard.md + CHANGELOG.md   Chuẩn gốc (chỉ có ở repo mẫu)
+│   ├── lessons.md                Bài học từ dự án thật → đầu vào để nâng version chuẩn (chỉ có ở repo mẫu)
 │   ├── decisions/               ADR — TẠI SAO chọn cách này                            (tuỳ dự án)
 │   └── runbook-deploy.md        Checklist deploy đọc độc lập, không nhét trong script
 ├── .gitignore
@@ -53,3 +54,9 @@ Repo mẫu chuẩn cấu trúc tài liệu cho dự án làm việc với Claude
 Chuẩn đầy đủ (nguyên tắc, bảng hạn mức, luật chống trùng lặp, lý do từng quyết định):
 [`project-structure-standard.md`](docs/project-structure-standard.md) — bản gốc do Claude Code duy trì,
 đồng bộ với `~/.claude/docs/project-structure-standard.md` của chủ dự án.
+
+## Phản hồi ngược về chuẩn
+
+Bài học rút ra từ dự án thật ghi **thẳng vào repo mẫu này** (clone local: `/Volumes/DATA/Claude-Code/project-structure-tungleads`),
+không ghi ở repo dự án con: thêm 1 mục vào `docs/lessons.md` → khi chốt sửa chuẩn thì bump version, ghi `docs/CHANGELOG.md`,
+gắn tag `vX.Y`.
