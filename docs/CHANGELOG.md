@@ -13,6 +13,10 @@ Không dùng **ngày** làm version (ngày chỉ nằm trong file này). Mỗi d
 
 ---
 
+## v1.4 — 2026-10-16 · MINOR
+
+- Thêm mục "Áp chuẩn cho dự án có sẵn `CLAUDE.md`/`AGENTS.md` riêng": quy trình gộp 1 lần trên branch (kiểm kê 3 nhóm trùng/riêng/mâu thuẫn, ưu tiên, luật an toàn không nới lỏng, kiểm sau gộp, chủ dự án duyệt diff). Chưa dùng marker tự thay phần chuẩn.
+
 ## v1.3 — 2026-10-16 · MINOR
 
 - Thêm mục "Cấu hình Claude Code theo dự án" (settings/hook/plugin/skill/MCP: vị trí + luật, cấm secret trong `.mcp.json`). Template thêm `.claude/settings.json` tối thiểu (deny đọc `.env*`, `secrets/**`) và `.gitignore` chặn `.claude/settings.local.json`. Dự án đang chạy không buộc nâng ngay.

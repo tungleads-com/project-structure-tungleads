@@ -3,7 +3,7 @@
 > Đúc kết từ 2 dự án thật: `TLA Theme` (tungleads-theme-cp — 2 model claude/deepseek chạy tuần tự,
 > đã tối ưu CLAUDE.md 131KB → 6.9KB) và `web-video-learning` (Laravel Boost — bằng chứng sống cho
 > việc KHÔNG rotate WORKLOG sẽ phình tới 214KB/1.586 dòng không kiểm soát được).
-> **Version: v1.3** (chốt 2026-10-16) · **Lịch sử sửa: `CHANGELOG.md`** (cùng thư mục) — mỗi lần sửa file này:
+> **Version: v1.4** (chốt 2026-10-16) · **Lịch sử sửa: `CHANGELOG.md`** (cùng thư mục) — mỗi lần sửa file này:
 > bump version (**PATCH** = sửa câu chữ · **MINOR** = thêm/sửa quy tắc, đổi hạn mức · **MAJOR** = đổi nguyên tắc nền)
 > rồi ghi **1 dòng** vào CHANGELOG. Dự án áp chuẩn thì ghi `**Chuẩn áp dụng:** … — vX.Y` trong `AGENTS.md`,
 > và mọi chỗ **lệch chuẩn** phải khai báo kèm **số đo + lý do + trigger xem lại**.
@@ -122,6 +122,26 @@ sinh lại một bản mới tại chỗ cũ, còn bản đã dời thành **b�
   `AGENTS.md` + `CLAUDE.md` riêng** và sự thật của repo nào nằm ở repo đó — **không** để “sự thật ở root, code ở con”;
   (3) kết thúc phiên phải kiểm `git status` **cả nhóm repo**; (4) `AGENTS.md` của repo con ghi rõ **thứ tự commit
   khi deploy** (VD plugin → parent → child → root).
+
+## Áp chuẩn cho dự án có sẵn `CLAUDE.md`/`AGENTS.md` riêng
+
+Dự án mới từ template không xung đột (chỉ có placeholder). Mục này cho dự án **đã chạy** (hoặc có file tool sinh) muốn áp chuẩn. Làm **một lần**, trên **branch riêng** (`chore/ap-chuan-vX.Y`), không xoá thẳng — git history là bản sao lưu.
+
+1. **Kiểm kê:** liệt kê từng luật trong `CLAUDE.md`/`AGENTS.md`/tài liệu hiện có, xếp vào 1 trong 3 nhóm:
+
+   | Nhóm | Xử lý |
+   | :--- | :--- |
+   | Trùng với chuẩn (làn A/B/C, đính chính, hạn mức…) | Bỏ bản của dự án, giữ bản của chuẩn |
+   | Riêng dự án | Chuyển về đúng nhà: nghiệp vụ → `PRODUCT.md`/`FEATURE_MAP`; luật làm việc → mục "Luật bất biến" của `AGENTS.md`; lệnh → "Môi trường & lệnh chạy" |
+   | Mâu thuẫn với chuẩn | Giữ, khai báo **lệch chuẩn** ngay cạnh dòng `Chuẩn áp dụng` kèm số đo + lý do + trigger xem lại |
+
+2. **Ưu tiên:** luật riêng dự án chỉ thắng chuẩn khi đã khai báo lệch chuẩn. **Luật an toàn không dự án nào được nới lỏng** (không commit secret, hỏi trước khi xoá/migration, không deploy khi chưa được yêu cầu).
+3. **Khối tool tự sinh** (Laravel Boost…): giữ nguyên tại chỗ, theo mục "Khối tool tự sinh guideline".
+4. **Gắn tag + ghi version:** thêm `**Chuẩn áp dụng:** … — vX.Y` vào `AGENTS.md`; seed `FEATURE_MAP` cho các tính năng đã có (tag `[Px.y]` vào code theo quy tắc chuẩn, không retrofit đồng loạt).
+5. **Kiểm sau gộp:** `wc -c CLAUDE.md AGENTS.md` đối chiếu hạn mức; quét trùng cụm 8 từ giữa các file (≥5% là có mùi); đối chiếu danh sách kiểm kê — không luật riêng nào mất.
+6. **Duyệt:** chủ dự án xem diff trước khi merge (việc đụng nhiều file, có thể xoá nhầm luật trông giống luật chuẩn).
+
+Chưa dùng marker `<!-- standard:start -->` để tự thay phần chuẩn khi nâng version: thêm khi số dự án tăng và việc nâng version thành thường xuyên.
 
 ## Khởi tạo dự án mới
 
