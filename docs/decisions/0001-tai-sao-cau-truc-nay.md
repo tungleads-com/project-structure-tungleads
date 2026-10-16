@@ -16,7 +16,7 @@ dòng vì không có cơ chế rotate) — vừa tốn token mỗi phiên, vừa
 - Tách bạch "sự thật hiện tại" (sửa tại chỗ) và "lịch sử" (chỉ ghi thêm, có rotate).
 - Luật đính chính bằng nhãn, không xoá lịch sử — giữ audit trail cho việc nhiều model bàn giao chéo.
 
-Chi tiết đầy đủ + bảng hạn mức: `~/.claude/docs/project-structure-standard.md` (chuẩn gốc, dùng chung
+Chi tiết đầy đủ + bảng hạn mức: `docs/project-structure-standard.md` (chuẩn gốc, dùng chung
 mọi dự án của chủ repo).
 
 ## Hệ quả
