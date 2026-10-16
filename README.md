@@ -1,7 +1,7 @@
 # Project Structure Template
 
 Repo mẫu chuẩn cấu trúc tài liệu cho dự án làm việc với Claude Code (và các AI agent khác) —
-đúc kết từ 2 dự án thật (WordPress multi-model, Laravel Boost), đã kiểm chứng bằng bằng chứng
+đúc kết từ 2 dự án thật (WordPress multi-model, Laravel Boost), đã kiểm chứng bằng chứng
 đo được (không suy đoán). Chi tiết lý do từng quyết định: `docs/decisions/0001-tai-sao-cau-truc-nay.md`.
 
 ## Dùng template này cho dự án mới
@@ -9,7 +9,9 @@ Repo mẫu chuẩn cấu trúc tài liệu cho dự án làm việc với Claude
 1. Clone/dùng nút "Use this template" trên GitHub.
 2. Đổi tên dự án trong `CLAUDE.md` (dòng đầu) + `README.md` này.
 3. Xoá phần không cần theo quy mô dự án (xem bảng "Khi nào cần file nào" bên dưới) — **đừng giữ file
-   rỗng không dùng tới, chỉ làm rối repo**.
+   rỗng không dùng tới, chỉ làm rối repo**. Riêng `docs/project-structure-standard.md` + `docs/CHANGELOG.md`
+   là chuẩn gốc: **xoá khỏi dự án con**, chỉ ghi `**Chuẩn áp dụng:** … — vX.Y` trong `AGENTS.md` (đồng thời
+   sửa link ADR-0001 trỏ về repo mẫu).
 4. Đề xuất bộ nhóm P-index phù hợp domain dự án (thay bảng mẫu trong `CLAUDE.md`) → người dùng duyệt
    → bắt đầu seed số đầu tiên.
 5. Điền `AGENTS.md` mục "Môi trường & lệnh chạy" theo đúng stack (Laravel/Next.js/WordPress...).
@@ -29,6 +31,7 @@ Repo mẫu chuẩn cấu trúc tài liệu cho dự án làm việc với Claude
 │   └── rules/                 index.md (router glob→rule) + rule theo chủ đề          (tuỳ quy mô)
 ├── docs/
 │   ├── measure/                Script đo tái dùng + README ý nghĩa từng script         (có UI)
+│   ├── project-structure-standard.md + CHANGELOG.md   Chuẩn gốc (chỉ có ở repo mẫu)
 │   ├── decisions/               ADR — TẠI SAO chọn cách này                            (tuỳ dự án)
 │   └── runbook-deploy.md        Checklist deploy đọc độc lập, không nhét trong script
 ├── .gitignore
