@@ -7,7 +7,8 @@ Repo mẫu chuẩn cấu trúc tài liệu cho dự án làm việc với Claude
 ## Dùng template này cho dự án mới
 
 1. Clone/dùng nút "Use this template" trên GitHub.
-2. Đổi tên dự án trong `CLAUDE.md` (dòng đầu) + `README.md` này.
+2. Thay `<Tên dự án>` + các chỗ `<…>` trong `CLAUDE.md`, `AGENTS.md`, `.ai/FEATURE_MAP.md`, `.ai/WORKLOG.md`, ngày ở ADR-0001; viết lại `README.md` này thành README thật của dự án.
+   Kiểm: `grep -rn "<[^>]*>" CLAUDE.md AGENTS.md .ai docs` — còn gì thì là chưa điền (bỏ qua chú thích trong `<!-- -->`).
 3. Xoá phần không cần theo quy mô dự án (xem bảng "Khi nào cần file nào" bên dưới) — **đừng giữ file
    rỗng không dùng tới, chỉ làm rối repo**. Riêng `docs/project-structure-standard.md` + `docs/CHANGELOG.md`
    và `docs/lessons.md` là của repo mẫu: **xoá khỏi dự án con**; `AGENTS.md`/ADR-0001 đã có link tới repo mẫu,
