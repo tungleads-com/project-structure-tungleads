@@ -3,7 +3,7 @@
 > Đúc kết từ 2 dự án thật: `TLA Theme` (tungleads-theme-cp — 2 model claude/deepseek chạy tuần tự,
 > đã tối ưu CLAUDE.md 131KB → 6.9KB) và `web-video-learning` (Laravel Boost — bằng chứng sống cho
 > việc KHÔNG rotate WORKLOG sẽ phình tới 214KB/1.586 dòng không kiểm soát được).
-> **Version: v1.1** (chốt 2026-10-12) · **Lịch sử sửa: `CHANGELOG.md`** (cùng thư mục) — mỗi lần sửa file này:
+> **Version: v1.2** (chốt 2026-10-16) · **Lịch sử sửa: `CHANGELOG.md`** (cùng thư mục) — mỗi lần sửa file này:
 > bump version (**PATCH** = sửa câu chữ · **MINOR** = thêm/sửa quy tắc, đổi hạn mức · **MAJOR** = đổi nguyên tắc nền)
 > rồi ghi **1 dòng** vào CHANGELOG. Dự án áp chuẩn thì ghi `**Chuẩn áp dụng:** … — vX.Y` trong `AGENTS.md`,
 > và mọi chỗ **lệch chuẩn** phải khai báo kèm **số đo + lý do + trigger xem lại**.

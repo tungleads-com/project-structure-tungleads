@@ -13,6 +13,10 @@ Không dùng **ngày** làm version (ngày chỉ nằm trong file này). Mỗi d
 
 ---
 
+## v1.2 — 2026-10-16 · MINOR
+
+- Template: thêm trường `LOCK:` vào `WORKLOG` §1 + nhắc kiểm LOCK trong `AGENTS.md` (chuẩn đã yêu cầu nhưng template thiếu); thêm dòng `Chuẩn áp dụng: … — vX.Y` vào `AGENTS.md` mẫu; thêm luật port local (registry) vào `AGENTS.md` + `.env.example`. `.gitignore` chặn `.env.*` (trừ `.env.example`). Dự án đang chạy không buộc nâng ngay.
+
 ## v1.1 — 2026-10-12 · MINOR
 
 - Chốt tag `// [Px.y][FE|BE|DB]` là định dạng duy nhất cho dự án mới (trước đó standard ghi "đề xuất", `CLAUDE.md`/`AGENTS.md` mẫu ghi `// Px.y` trần → lệch). Sửa `CLAUDE.md` + `AGENTS.md` mẫu cho khớp. Dự án đang chạy không buộc nâng ngay.

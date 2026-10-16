@@ -2,9 +2,11 @@
 
 **Repo:** <Tên dự án> — <mô tả ngắn>. <Ghi ranh giới kiến trúc nếu có, VD "child theme chỉ trình bày, business logic ở plugin X">.
 
+**Chuẩn áp dụng:** `project-structure-standard` — v1.2 <!-- ghi mọi chỗ lệch chuẩn kèm số đo + lý do + trigger xem lại -->
+
 **Model chạy trên repo này:** <VD "chỉ 1 model (Claude Code)" hoặc "N model tuần tự: claude, deepseek, codex — KHÔNG bao giờ song song">.
 <Nếu nhiều model: model sau chỉ bắt đầu khi model trước dừng hẳn và để lại nhật ký trong `.ai/WORKLOG.md`.
-Nhãn commit chỉ được là tên model đã khai ở đây.>
+Nhãn commit chỉ được là tên model đã khai ở đây. Trước khi sửa: đọc `LOCK:` ở §1 WORKLOG — đang bị model khác giữ thì dừng, hỏi người dùng.>
 
 **Quan hệ các file tài liệu (KHÔNG để trùng lặp):**
 - **`AGENTS.md`** (file này) = luật làm việc duy nhất (checklist · làn A/B/C · sự thật/lịch sử · hạn mức · môi trường · kiểm chứng).
@@ -54,6 +56,7 @@ Nhãn commit chỉ được là tên model đã khai ở đây.>
 ## Môi trường & lệnh chạy
 
 <Điền theo đúng stack dự án — VD:>
+- **Port local:** lấy từ registry `~/.claude/docs/port-registry.md` (web `81NN`, DB `34NN`, phụ `82NN`) — đăng ký trước khi ghi vào `.env`/compose; không dùng port mặc định (8080, 3306, 3000, 8000…).
 - Dev server: `<lệnh>`
 - Test: `<lệnh>`
 - Build: `<lệnh>`

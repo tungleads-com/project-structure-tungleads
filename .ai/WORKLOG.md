@@ -11,6 +11,7 @@
 
 ## §1 ĐANG LÀM (bàn giao — ghi đè mỗi phiên, chỉ giữ 1 khối)
 
+- **LOCK:** trống <!-- hoặc tên model đang giữ (claude/deepseek/codex); khoá quy ước, không phải khoá hệ thống -->
 - **Model:** —
 - **Việc đang làm / vừa xong:** —
 - **File đã/sẽ chạm:** —
