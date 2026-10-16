@@ -3,7 +3,7 @@
 > Đúc kết từ 2 dự án thật: `TLA Theme` (tungleads-theme-cp — 2 model claude/deepseek chạy tuần tự,
 > đã tối ưu CLAUDE.md 131KB → 6.9KB) và `web-video-learning` (Laravel Boost — bằng chứng sống cho
 > việc KHÔNG rotate WORKLOG sẽ phình tới 214KB/1.586 dòng không kiểm soát được).
-> **Version: v1.2** (chốt 2026-10-16) · **Lịch sử sửa: `CHANGELOG.md`** (cùng thư mục) — mỗi lần sửa file này:
+> **Version: v1.3** (chốt 2026-10-16) · **Lịch sử sửa: `CHANGELOG.md`** (cùng thư mục) — mỗi lần sửa file này:
 > bump version (**PATCH** = sửa câu chữ · **MINOR** = thêm/sửa quy tắc, đổi hạn mức · **MAJOR** = đổi nguyên tắc nền)
 > rồi ghi **1 dòng** vào CHANGELOG. Dự án áp chuẩn thì ghi `**Chuẩn áp dụng:** … — vX.Y` trong `AGENTS.md`,
 > và mọi chỗ **lệch chuẩn** phải khai báo kèm **số đo + lý do + trigger xem lại**.
@@ -97,6 +97,22 @@ sinh lại một bản mới tại chỗ cũ, còn bản đã dời thành **b�
    (b) tắt hẳn tính năng guideline nếu model không cần nữa.
 3. **Chứng minh bằng test, không bằng suy luận:** `shasum <file>` → chạy sync → `shasum` lại → `diff`; **chạy 2 lần**
    để chắc tool không sinh bản thứ hai ở nơi khác.
+
+## Cấu hình Claude Code theo dự án (skills · hook · plugin · MCP)
+
+**Nguyên tắc:** tạo khi dự án THẬT SỰ cần, không tạo thư mục rỗng. Mỗi thứ chỉ có **1 nhà**, nằm trong repo dự án dùng nó.
+
+| Loại | Vị trí trong repo dự án | Luật |
+| :--- | :--- | :--- |
+| Permission · hook · plugin bật cho dự án | `.claude/settings.json` (commit) | Template có sẵn bản tối thiểu chặn đọc `.env*`/`secrets/`. Cá nhân từng máy → `.claude/settings.local.json` (gitignore). |
+| Skill riêng dự án | `.claude/skills/<tên>/SKILL.md` | 1 bản thật; tool khác cần thì symlink (xem "Không nhân bản skill"). Không dùng chung skill giữa dự án khách hàng. |
+| MCP riêng dự án | `.mcp.json` ở root | **Cấm secret** trong file — chỉ dùng biến môi trường `${VAR}`, khai tên biến trong `.env.example`. |
+| Subagent · slash command | `.claude/agents/` · `.claude/commands/` | Tạo khi cần. |
+| Script hook | `.claude/hooks/*.sh` (gọi bằng `${CLAUDE_PROJECT_DIR}/.claude/hooks/…`) | Hook chạy lệnh thật trên máy: clone repo lạ thì đọc hook trước khi mở trust. |
+
+- Thêm plugin/MCP/hook vào dự án ⇒ ghi **1 dòng lý do** vào `AGENTS.md` (hoặc `.ai/rules/`), để biết vì sao có và khi nào gỡ.
+- `enabledPlugins` trong `settings.json` chỉ *khai báo*, không cài hộ — người clone vẫn phải tự cài plugin.
+- Thứ dùng chung mọi dự án (kỹ năng cá nhân, MCP cá nhân) ở `~/.claude/`, không chép vào repo dự án.
 
 ## Một repo hay nhiều repo
 

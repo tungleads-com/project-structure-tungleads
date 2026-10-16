@@ -13,6 +13,10 @@ Không dùng **ngày** làm version (ngày chỉ nằm trong file này). Mỗi d
 
 ---
 
+## v1.3 — 2026-10-16 · MINOR
+
+- Thêm mục "Cấu hình Claude Code theo dự án" (settings/hook/plugin/skill/MCP: vị trí + luật, cấm secret trong `.mcp.json`). Template thêm `.claude/settings.json` tối thiểu (deny đọc `.env*`, `secrets/**`) và `.gitignore` chặn `.claude/settings.local.json`. Dự án đang chạy không buộc nâng ngay.
+
 ## v1.2 — 2026-10-16 · MINOR
 
 - Template: thêm trường `LOCK:` vào `WORKLOG` §1 + nhắc kiểm LOCK trong `AGENTS.md` (chuẩn đã yêu cầu nhưng template thiếu); thêm dòng `Chuẩn áp dụng: … — vX.Y` vào `AGENTS.md` mẫu; thêm luật port local (registry) vào `AGENTS.md` + `.env.example`. `.gitignore` chặn `.env.*` (trừ `.env.example`). Dự án đang chạy không buộc nâng ngay.

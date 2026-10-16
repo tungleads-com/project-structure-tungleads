@@ -36,6 +36,7 @@ Repo mẫu chuẩn cấu trúc tài liệu cho dự án làm việc với Claude
 │   ├── lessons.md                Bài học từ dự án thật → đầu vào để nâng version chuẩn (chỉ có ở repo mẫu)
 │   ├── decisions/               ADR — TẠI SAO chọn cách này                            (tuỳ dự án)
 │   └── runbook-deploy.md        Checklist deploy đọc độc lập, không nhét trong script
+├── .claude/settings.json     Cấu hình Claude Code của dự án (tối thiểu: chặn đọc .env). Skill/hook/MCP: tạo khi cần.
 ├── .gitignore
 ├── .editorconfig
 └── .env.example
@@ -50,6 +51,7 @@ Repo mẫu chuẩn cấu trúc tài liệu cho dự án làm việc với Claude
 | `.ai/rules/` | Chỉ khi dự án nhiều concern kỹ thuật khác nhau | Dự án nhỏ/1 stack đơn giản — gộp vào `AGENTS.md` |
 | `docs/decisions/` (ADR) | Tuỳ dự án | Dự án không có quyết định kiến trúc gây tranh cãi |
 | `docs/measure/` | Chỉ dự án có UI cần đo/kiểm chứng | Dự án backend/API thuần |
+| `.claude/skills/`, `.claude/hooks/`, `.mcp.json` | Chỉ khi dự án cần skill/hook/MCP riêng | Không dùng → đừng tạo (xem mục "Cấu hình Claude Code" trong chuẩn) |
 | `PRODUCT.md` | Tuỳ dự án | Dự án nội bộ nhỏ, nghiệp vụ đơn giản |
 
 Chuẩn đầy đủ (nguyên tắc, bảng hạn mức, luật chống trùng lặp, lý do từng quyết định):

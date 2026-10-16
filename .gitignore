@@ -3,6 +3,9 @@
 .env.*
 !.env.example
 
+# Claude Code — cấu hình cá nhân từng máy (settings.json thì commit)
+.claude/settings.local.json
+
 # OS
 .DS_Store
 
